@@ -12,7 +12,7 @@ Create all scss-variable with colors for different fcoo-maps layers
 NIORD
 **********************************************************/
 //$navigation-purple = Standard color for route etc. in charts
-$navigation-purple: #e2007a;
+$navigation-purple: green; //#e2007a;
 
 //$navigation-purple-dark = Darker version used as border-color
 $navigation-purple-dark: darken($navigation-purple, 20%);

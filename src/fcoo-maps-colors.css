@@ -95,20 +95,20 @@ Create the style for the four different domains
     box-shadow: 0 0 6px 2px white; }
 
 .lbm-type-circle.lbm-border-color-niord-fa {
-  border-color: #7c0043; }
+  border-color: #001a00; }
 
 .fa-lbm-color-niord-fa {
   color: white; }
 
 .fa-lbm-border-color-niord-fa {
-  color: #7c0043; }
+  color: #001a00; }
 
 .lpl-base.lpl-niord-fa {
   fill: white; }
 
 .lpl-base.lpl-border-niord-fa,
 .lpl-shadow.lpl-border-niord-fa {
-  stroke: #7c0043; }
+  stroke: #001a00; }
 
 .lbm-type-circle.lbm-color-niord-nm {
   background-color: white;
@@ -123,73 +123,73 @@ Create the style for the four different domains
     box-shadow: 0 0 6px 2px white; }
 
 .lbm-type-circle.lbm-border-color-niord-nm {
-  border-color: #7c0043; }
+  border-color: #001a00; }
 
 .fa-lbm-color-niord-nm {
   color: white; }
 
 .fa-lbm-border-color-niord-nm {
-  color: #7c0043; }
+  color: #001a00; }
 
 .lpl-base.lpl-niord-nm {
   fill: white; }
 
 .lpl-base.lpl-border-niord-nm,
 .lpl-shadow.lpl-border-niord-nm {
-  stroke: #7c0043; }
+  stroke: #001a00; }
 
 .lbm-type-circle.lbm-color-niord-nw {
-  background-color: #e2007a;
+  background-color: green;
   color: #fff; }
   .lbm-type-circle.lbm-color-niord-nw.lbm-transparent {
-    background-color: rgba(226, 0, 122, 0.7); }
+    background-color: rgba(0, 128, 0, 0.7); }
     .lbm-type-circle.lbm-color-niord-nw.lbm-transparent.lbm-hover:hover {
-      background-color: rgba(226, 0, 122, 0.9); }
+      background-color: rgba(0, 128, 0, 0.9); }
   .lbm-type-circle.lbm-color-niord-nw.lbm-shadow, .lbm-type-circle.lbm-color-niord-nw.leaflet-drag-target, .lbm-type-circle.lbm-color-niord-nw.lbm-hover:hover {
-    box-shadow: 0px 0px 0px 5px rgba(226, 0, 122, 0.28); }
+    box-shadow: 0px 0px 0px 5px rgba(0, 128, 0, 0.28); }
   .lbm-type-circle.lbm-color-niord-nw:before {
-    box-shadow: 0 0 6px 2px #e2007a; }
+    box-shadow: 0 0 6px 2px green; }
 
 .lbm-type-circle.lbm-border-color-niord-nw {
-  border-color: #7c0043; }
+  border-color: #001a00; }
 
 .fa-lbm-color-niord-nw {
-  color: #e2007a; }
+  color: green; }
 
 .fa-lbm-border-color-niord-nw {
-  color: #7c0043; }
+  color: #001a00; }
 
 .lpl-base.lpl-niord-nw {
-  fill: #e2007a; }
+  fill: green; }
 
 .lpl-base.lpl-border-niord-nw,
 .lpl-shadow.lpl-border-niord-nw {
-  stroke: #7c0043; }
+  stroke: #001a00; }
 
 .lbm-type-circle.lbm-color-niord-fe {
-  background-color: #e2007a;
+  background-color: green;
   color: #fff; }
   .lbm-type-circle.lbm-color-niord-fe.lbm-transparent {
-    background-color: rgba(226, 0, 122, 0.7); }
+    background-color: rgba(0, 128, 0, 0.7); }
     .lbm-type-circle.lbm-color-niord-fe.lbm-transparent.lbm-hover:hover {
-      background-color: rgba(226, 0, 122, 0.9); }
+      background-color: rgba(0, 128, 0, 0.9); }
   .lbm-type-circle.lbm-color-niord-fe.lbm-shadow, .lbm-type-circle.lbm-color-niord-fe.leaflet-drag-target, .lbm-type-circle.lbm-color-niord-fe.lbm-hover:hover {
-    box-shadow: 0px 0px 0px 5px rgba(226, 0, 122, 0.28); }
+    box-shadow: 0px 0px 0px 5px rgba(0, 128, 0, 0.28); }
   .lbm-type-circle.lbm-color-niord-fe:before {
-    box-shadow: 0 0 6px 2px #e2007a; }
+    box-shadow: 0 0 6px 2px green; }
 
 .lbm-type-circle.lbm-border-color-niord-fe {
-  border-color: #7c0043; }
+  border-color: #001a00; }
 
 .fa-lbm-color-niord-fe {
-  color: #e2007a; }
+  color: green; }
 
 .fa-lbm-border-color-niord-fe {
-  color: #7c0043; }
+  color: #001a00; }
 
 .lpl-base.lpl-niord-fe {
-  fill: #e2007a; }
+  fill: green; }
 
 .lpl-base.lpl-border-niord-fe,
 .lpl-shadow.lpl-border-niord-fe {
-  stroke: #7c0043; }
+  stroke: #001a00; }
