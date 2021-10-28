@@ -1,0 +1,39 @@
+{
+  "name": "fcoo-maps-colors",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FCOO/fcoo-maps-colors",
+  "authors": [
+    "Niels Holt"
+  ],
+  "description": "JS, css, and SCSS mixins defining the colors and color-system for marker, lines etc. in fcoo-maps",
+  "main": [
+    "dist/fcoo-maps-colors.js",
+    "dist/fcoo-maps-colors.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/fcoo-maps-colors.git"
+  },
+  "dependencies": {
+    "jquery": "latest"
+  },
+  "devDependencies": {
+    "bourbon": "latest",
+    "modernizr-mixin": "latest",
+    "mathsass": "latest",
+    "fcoo-colors": "fcoo/fcoo-colors#latest",
+    "leaflet-bootstrap-marker-mixin": "fcoo/leaflet-bootstrap-marker-mixin#latest",
+    "leaflet-polyline": "fcoo/leaflet-polyline#latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
+}

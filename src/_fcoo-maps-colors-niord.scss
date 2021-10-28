@@ -1,0 +1,26 @@
+/***********************************************
+_fcoo-maps-colors-niord.scss
+
+Style for fcoo/fcoo-maps-niord / fcoo/jquery-bootstrap-niord
+
+Create the style for the four different domains
+************************************************/
+
+@mixin niord( $prefix, $color, $border-color){
+    $name: niord-#{$prefix};
+    @include lbm-marker-and-icon-classes( $name, $color, $border-color );
+    @include polyline-classes( $name, $color, $border-color );
+}
+
+//fa - All Danish firing areas are defined as miscellaneous Notices to Mariners in the "niord-fa" domain.
+@include niord( 'fa', white, $navigation-purple-dark);
+
+//nm - All Danish Notices to Mariners are produced in the "niord-nm" domain.
+@include niord( 'nm', white, $navigation-purple-dark);
+
+//nw - All Danish navigational warnings are produced in the "niord-nw" domain.
+@include niord( 'nw', $navigation-purple, $navigation-purple-dark);
+
+//fe - The actual firing exercises are maintained as local navigational warnings in the "niord-fe" domain.
+@include niord( 'fe', $navigation-purple, $navigation-purple-dark);
+
