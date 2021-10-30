@@ -1,0 +1,15 @@
+/***********************************************
+
+fcoo-maps-colors-mixin
+
+************************************************/
+
+/**********************************************************
+marker-and-polygon-color
+create color-classes for bsMarker and bsPolyline
+**********************************************************/
+@mixin marker-and-polygon-color( $name, $color, $border-color:$color){
+    @include lbm-marker-and-icon-classes( $name, $color, $border-color );
+    @include polyline-classes( $name, $color, $border-color );
+}
+

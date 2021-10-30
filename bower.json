@@ -1,6 +1,6 @@
 {
   "name": "fcoo-maps-colors",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/FCOO/fcoo-maps-colors",
   "authors": [
     "Niels Holt"
@@ -15,15 +15,15 @@
     "url": "git://github.com/FCOO/fcoo-maps-colors.git"
   },
   "dependencies": {
-    "jquery": "latest"
+    "jquery": "latest",
+    "fcoo-colors": "fcoo/fcoo-colors#latest",
+    "leaflet-bootstrap-marker-mixin": "fcoo/leaflet-bootstrap-marker-mixin#latest",
+    "leaflet-polyline-mixin": "fcoo/leaflet-polyline-mixin#latest"
   },
   "devDependencies": {
     "bourbon": "latest",
     "modernizr-mixin": "latest",
-    "mathsass": "latest",
-    "fcoo-colors": "fcoo/fcoo-colors#latest",
-    "leaflet-bootstrap-marker-mixin": "fcoo/leaflet-bootstrap-marker-mixin#latest",
-    "leaflet-polyline": "fcoo/leaflet-polyline#latest"
+    "mathsass": "latest"
   },
   "license": "MIT",
   "ignore": [

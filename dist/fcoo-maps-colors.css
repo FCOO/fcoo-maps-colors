@@ -56,8 +56,8 @@ FCOO-COLORS
 
 ************************************************/
 /*********************************
-FCOO-MAPS-COLORS-VARIABLES
-scss-variable with all colors
+FCOO-MAPS-COLORS-VARIABLES and FCOO-MAPS-COLORS-MIXIN
+scss-variable with all colors and mixins
 *********************************/
 /***********************************************
 fcoo-maps-colors-variables
@@ -65,18 +65,101 @@ fcoo-maps-colors-variables
 Create all scss-variable with colors for different fcoo-maps layers
 
 ************************************************/
+/****************************************************************************
+SEARCH RESULT
+Color for search result
+****************************************************************************/
+/*Previous used colors:
+$DarkGoldenRod: #B8860B;
+$Chartreuse: #7FFF00;
+$osm-search-result: darken(#FF6200, 5); //dark-dark-orange
+*/
 /**********************************************************
-NIORD
+OBSERVATIONS
+**********************************************************/
+/**********************************************************
+NAVIGATION AND NIORD
+**********************************************************/
+/****************************************************************************
+LOCATION
+****************************************************************************/
+/***********************************************
+
+fcoo-maps-colors-mixin
+
+************************************************/
+/**********************************************************
+marker-and-polygon-color
+create color-classes for bsMarker and bsPolyline
 **********************************************************/
 /*********************************
-STANDARD USER COLORS
+Style for search results in fcoo-maps
 *********************************/
+.lbm-type-circle.lbm-color-search-result {
+  background-color: #EC640C;
+  color: #000; }
+  .lbm-type-circle.lbm-color-search-result.lbm-transparent {
+    background-color: rgba(236, 100, 12, 0.7); }
+    .lbm-type-circle.lbm-color-search-result.lbm-transparent.lbm-hover:hover {
+      background-color: rgba(236, 100, 12, 0.9); }
+  .lbm-type-circle.lbm-color-search-result.lbm-shadow, .lbm-type-circle.lbm-color-search-result.leaflet-drag-target, .lbm-type-circle.lbm-color-search-result.lbm-hover:hover {
+    box-shadow: 0px 0px 0px 5px rgba(236, 100, 12, 0.28); }
+  .lbm-type-circle.lbm-color-search-result:before {
+    box-shadow: 0 0 6px 2px #EC640C; }
+
+.lbm-type-circle.lbm-border-color-search-result {
+  border-color: #EC640C; }
+
+.fa-lbm-color-search-result {
+  color: #EC640C; }
+
+.fa-lbm-border-color-search-result {
+  color: #EC640C; }
+
+.lpl-base.lpl-search-result {
+  fill: #EC640C; }
+
+.lpl-base.lpl-border-search-result,
+.lpl-shadow.lpl-border-search-result {
+  stroke: #EC640C; }
+
 /*********************************
-FCOO-MAPS-COLORS-NIORD
-Style for fcoo/fcoo-maps-niord
+FCOO-MAPS-COLORS-OBSERVATIONS
+Style for fcoo/fcoo-maps-observations
 *********************************/
 /***********************************************
-_fcoo-maps-colors-niord.scss
+_fcoo-maps-colors-observations.scss
+
+Style for fcoo/fcoo-maps-observations
+
+************************************************/
+.lbm-type-circle.lbm-color-observations {
+  background-color: #EFB920;
+  color: #000; }
+  .lbm-type-circle.lbm-color-observations.lbm-transparent {
+    background-color: rgba(239, 185, 32, 0.7); }
+    .lbm-type-circle.lbm-color-observations.lbm-transparent.lbm-hover:hover {
+      background-color: rgba(239, 185, 32, 0.9); }
+  .lbm-type-circle.lbm-color-observations.lbm-shadow, .lbm-type-circle.lbm-color-observations.leaflet-drag-target, .lbm-type-circle.lbm-color-observations.lbm-hover:hover {
+    box-shadow: 0px 0px 0px 5px rgba(239, 185, 32, 0.28); }
+  .lbm-type-circle.lbm-color-observations:before {
+    box-shadow: 0 0 6px 2px #EFB920; }
+
+.lbm-type-circle.lbm-border-color-observations {
+  border-color: #EFB920; }
+
+.fa-lbm-color-observations {
+  color: #EFB920; }
+
+.fa-lbm-border-color-observations {
+  color: #EFB920; }
+
+/*********************************
+FCOO-MAPS-COLORS-NIORD-AND-NAVIGATION
+Style for fcoo/fcoo-maps-niord and navigation layers
+*********************************/
+/***********************************************
+_fcoo-maps-colors-niord-and-navigation.scss
 
 Style for fcoo/fcoo-maps-niord / fcoo/jquery-bootstrap-niord
 
@@ -139,7 +222,7 @@ Create the style for the four different domains
   stroke: #7c0043; }
 
 .lbm-type-circle.lbm-color-niord-nw {
-  background-color: #e2007a;
+  background-color: #E2007A;
   color: #fff; }
   .lbm-type-circle.lbm-color-niord-nw.lbm-transparent {
     background-color: rgba(226, 0, 122, 0.7); }
@@ -148,26 +231,26 @@ Create the style for the four different domains
   .lbm-type-circle.lbm-color-niord-nw.lbm-shadow, .lbm-type-circle.lbm-color-niord-nw.leaflet-drag-target, .lbm-type-circle.lbm-color-niord-nw.lbm-hover:hover {
     box-shadow: 0px 0px 0px 5px rgba(226, 0, 122, 0.28); }
   .lbm-type-circle.lbm-color-niord-nw:before {
-    box-shadow: 0 0 6px 2px #e2007a; }
+    box-shadow: 0 0 6px 2px #E2007A; }
 
 .lbm-type-circle.lbm-border-color-niord-nw {
   border-color: #7c0043; }
 
 .fa-lbm-color-niord-nw {
-  color: #e2007a; }
+  color: #E2007A; }
 
 .fa-lbm-border-color-niord-nw {
   color: #7c0043; }
 
 .lpl-base.lpl-niord-nw {
-  fill: #e2007a; }
+  fill: #E2007A; }
 
 .lpl-base.lpl-border-niord-nw,
 .lpl-shadow.lpl-border-niord-nw {
   stroke: #7c0043; }
 
 .lbm-type-circle.lbm-color-niord-fe {
-  background-color: #e2007a;
+  background-color: #E2007A;
   color: #fff; }
   .lbm-type-circle.lbm-color-niord-fe.lbm-transparent {
     background-color: rgba(226, 0, 122, 0.7); }
@@ -176,20 +259,57 @@ Create the style for the four different domains
   .lbm-type-circle.lbm-color-niord-fe.lbm-shadow, .lbm-type-circle.lbm-color-niord-fe.leaflet-drag-target, .lbm-type-circle.lbm-color-niord-fe.lbm-hover:hover {
     box-shadow: 0px 0px 0px 5px rgba(226, 0, 122, 0.28); }
   .lbm-type-circle.lbm-color-niord-fe:before {
-    box-shadow: 0 0 6px 2px #e2007a; }
+    box-shadow: 0 0 6px 2px #E2007A; }
 
 .lbm-type-circle.lbm-border-color-niord-fe {
   border-color: #7c0043; }
 
 .fa-lbm-color-niord-fe {
-  color: #e2007a; }
+  color: #E2007A; }
 
 .fa-lbm-border-color-niord-fe {
   color: #7c0043; }
 
 .lpl-base.lpl-niord-fe {
-  fill: #e2007a; }
+  fill: #E2007A; }
 
 .lpl-base.lpl-border-niord-fe,
 .lpl-shadow.lpl-border-niord-fe {
   stroke: #7c0043; }
+
+.fa-navigation {
+  color: #E5238C; }
+
+/*********************************
+STANDARD USER COLORS
+*********************************/
+.lpl-base.lpl-dette-er-et-navn {
+  fill: green; }
+
+.lpl-base.lpl-border-dette-er-et-navn,
+.lpl-shadow.lpl-border-dette-er-et-navn {
+  stroke: red; }
+
+.lbm-type-circle.lbm-color-dette-er-et-navn {
+  background-color: green;
+  color: #fff; }
+  .lbm-type-circle.lbm-color-dette-er-et-navn.lbm-transparent {
+    background-color: rgba(0, 128, 0, 0.7); }
+    .lbm-type-circle.lbm-color-dette-er-et-navn.lbm-transparent.lbm-hover:hover {
+      background-color: rgba(0, 128, 0, 0.9); }
+  .lbm-type-circle.lbm-color-dette-er-et-navn.lbm-shadow, .lbm-type-circle.lbm-color-dette-er-et-navn.leaflet-drag-target, .lbm-type-circle.lbm-color-dette-er-et-navn.lbm-hover:hover {
+    box-shadow: 0px 0px 0px 5px rgba(0, 128, 0, 0.28); }
+  .lbm-type-circle.lbm-color-dette-er-et-navn:before {
+    box-shadow: 0 0 6px 2px green; }
+
+.lbm-type-circle.lbm-border-color-dette-er-et-navn {
+  border-color: red; }
+
+.fa-lbm-color-dette-er-et-navn {
+  color: green; }
+
+.fa-lbm-border-color-dette-er-et-navn {
+  color: red; }
+
+.niels {
+  font-family: 0 1 2 3 4 5 6 7 8; }

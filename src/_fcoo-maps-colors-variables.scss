@@ -6,18 +6,39 @@ Create all scss-variable with colors for different fcoo-maps layers
 ************************************************/
 
 
+/****************************************************************************
+SEARCH RESULT
+Color for search result
+****************************************************************************/
+$search-result-color: fc-get-delta-color($fc-orange, 1); //Darker orange
+
+/*Previous used colors:
+$DarkGoldenRod: #B8860B;
+$Chartreuse: #7FFF00;
+$osm-search-result: darken(#FF6200, 5); //dark-dark-orange
+*/
+
+/**********************************************************
+OBSERVATIONS
+**********************************************************/
+$observations-color: fc-get-color( $fc-yellow );
 
 
 /**********************************************************
-NIORD
+NAVIGATION AND NIORD
 **********************************************************/
-//$navigation-purple = Standard color for route etc. in charts
-$navigation-purple: #e2007a;
+//Standard "pink" for navigation-lines and area in charts
+$navigation-pink:  #E5238C;
+
+//$navigation-purple = Used by Danish Maritime Authority as standard color for Notices to Mariners, navigational and shooting warnings
+$navigation-purple: #E2007A;
 
 //$navigation-purple-dark = Darker version used as border-color
 $navigation-purple-dark: darken($navigation-purple, 20%);
 
 
-
-
+/****************************************************************************
+LOCATION
+****************************************************************************/
+$location-color: #4285F4; //= rgba(66, 133, 244) = google maps color for location icon
 

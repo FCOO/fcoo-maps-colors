@@ -13,7 +13,6 @@
 /*********************************
 IMPORT UTILITIES
 *********************************/
-
 //BOURBON - http://bourbon.io/
 // @import "../bower_components/bourbon/core/bourbon";
 
@@ -29,8 +28,8 @@ IMPORT UTILITIES
 //LEAFLET-BOOTSTRAP-MARKER-MIXIN - mixin to create colors for marker (bsMarker)
 @import "../bower_components/leaflet-bootstrap-marker-mixin/dist/leaflet-bootstrap-marker-mixin";
 
-//LEAFLET-POLYLINE - mixin to create colors for polyline and polygon
-@import "../bower_components/leaflet-polyline/src/leaflet-polyline-mixin";
+//LEAFLET-POLYLINE-MIXIN - mixin to create colors for polyline and polygon
+@import "../bower_components/leaflet-polyline-mixin/dist/leaflet-polyline-mixin";
 
 
 /*********************************
@@ -38,25 +37,51 @@ FCOO-COLORS
 *********************************/
 @import "../bower_components/fcoo-colors/src/fcoo-colors-mixin";
 
-
 /*********************************
-FCOO-MAPS-COLORS-VARIABLES
-scss-variable with all colors
+FCOO-MAPS-COLORS-VARIABLES and FCOO-MAPS-COLORS-MIXIN
+scss-variable with all colors and mixins
 *********************************/
 @import "fcoo-maps-colors-variables";
+@import "fcoo-maps-colors-mixin";
+
+
+/*********************************
+Style for search results in fcoo-maps
+*********************************/
+@include marker-and-polygon-color( 'search-result', $search-result-color);
+
+
+/*********************************
+FCOO-MAPS-COLORS-OBSERVATIONS
+Style for fcoo/fcoo-maps-observations
+*********************************/
+@import "fcoo-maps-colors-observations";
+
+
+/*********************************
+FCOO-MAPS-COLORS-NIORD-AND-NAVIGATION
+Style for fcoo/fcoo-maps-niord and navigation layers
+*********************************/
+@import "fcoo-maps-colors-niord-and-navigation";
 
 
 /*********************************
 STANDARD USER COLORS
 *********************************/
 
+@include polyline-classes( dette-er-et-navn, green, red );
 
-/*********************************
-FCOO-MAPS-COLORS-NIORD
-Style for fcoo/fcoo-maps-niord
-*********************************/
-@import "fcoo-maps-colors-niord";
+//lbm-marker-and-icon-classes - Create class for bsMarkerCircle named $name with color and color-border
+@include lbm-circle-and-icon-classes( dette-er-et-navn, green, red );
 
 
+//fa-lbm-color - Create class for color and border-color used by L.bsMarkerAsIcon (and $.bsMarkerAsIcon) to create fa-icon looking like the marker
+@include  fa-lbm-color( dette-er-et-navn, green, red );
+
+
+
+.niels {
+    font-family: $fc-color-list;
+}
 
 

@@ -1,0 +1,10 @@
+/***********************************************
+_fcoo-maps-colors-observations.scss
+
+Style for fcoo/fcoo-maps-observations
+
+************************************************/
+
+//Create classes to give observations a yellow color
+@include lbm-marker-and-icon-classes( observations, $observations-color );
+
