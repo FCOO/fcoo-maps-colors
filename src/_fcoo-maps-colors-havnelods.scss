@@ -1,0 +1,14 @@
+/***********************************************
+_fcoo-maps-colors-havnelods.scss
+
+Style for fcoo/fcoo-maps-havnelods
+
+************************************************/
+
+//Create classes to give havnelods a green color
+@include lbm-marker-and-icon-classes( harbor-dk, $harbor-dk-color );
+@include lbm-marker-and-icon-classes( harbor-gl, $harbor-gl-color );
+
+
+
+
