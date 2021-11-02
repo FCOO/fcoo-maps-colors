@@ -50,6 +50,15 @@ Style for search results in fcoo-maps
 *********************************/
 @include marker-and-polygon-color( 'search-result', $search-result-color);
 
+/*********************************
+Style for time
+*********************************/
+.time-past-color   { color: $time-past-color  }
+.time-now-color    { color: $time-now-color   }
+.time-future-color { color: $time-future-color}
+
+
+
 
 /*********************************
 FCOO-MAPS-COLORS-OBSERVATIONS

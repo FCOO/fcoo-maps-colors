@@ -66,6 +66,10 @@ Create all scss-variable with colors for different fcoo-maps layers
 
 ************************************************/
 /****************************************************************************
+TIME
+Color to mark a time, button etc. as past, now or future
+****************************************************************************/
+/****************************************************************************
 SEARCH RESULT
 Color for search result
 ****************************************************************************/
@@ -125,6 +129,18 @@ Style for search results in fcoo-maps
 .lpl-base.lpl-border-search-result,
 .lpl-shadow.lpl-border-search-result {
   stroke: #EC640C; }
+
+/*********************************
+Style for time
+*********************************/
+.time-past-color {
+  color: #7ABAE1; }
+
+.time-now-color {
+  color: lightgreen; }
+
+.time-future-color {
+  color: #4D72B8; }
 
 /*********************************
 FCOO-MAPS-COLORS-OBSERVATIONS

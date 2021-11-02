@@ -7,6 +7,15 @@ Create all scss-variable with colors for different fcoo-maps layers
 
 
 /****************************************************************************
+TIME
+Color to mark a time, button etc. as past, now or future
+****************************************************************************/
+$time-past-color  : #7ABAE1;
+$time-now-color   : lightgreen;
+$time-future-color: #4D72B8;
+
+
+/****************************************************************************
 SEARCH RESULT
 Color for search result
 ****************************************************************************/
