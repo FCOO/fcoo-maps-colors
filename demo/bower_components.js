@@ -1,67 +1,3 @@
-/****************************************************************************
-	fcoo-colors.js,
-
-	(c) 2021, FCOO
-
-	https://github.com/FCOO/fcoo-colors
-	https://github.com/FCOO
-
-****************************************************************************/
-
-(function ($, window/*, document, undefined*/) {
-	"use strict";
-
-	//Create fcoo-namespace
-    var ns = window.fcoo = window.fcoo || {},
-        nsColor = ns.color = ns.color || {};
-
-
-    nsColor.colorArray = [
-        //0:Blue    1:Purple    2:Red      3:Orange   4:Cyan     5:Yellow   6:Pink     7:Green    8:Gray
-        ['#CFEDFB', '#EBE4FF', '#FFE0DA', '#FFE7BB', '#D2ECEB', '#FFF2B6', '#FFDFF2', '#E0F4BE', '#E6E9EC'],
-        ['#9BDAF3', '#D8CCF4', '#FAC2BB', '#F8CD94', '#9EDDDD', '#FBE491', '#FFC4E4', '#C7E59A', '#D0D3D6'],
-        ['#68C7EC', '#BFABE6', '#F59890', '#F7B26A', '#69CDCF', '#F7D56B', '#F99ACA', '#AED677', '#B6B9BC'],
-        ['#34B3E4', '#A589D9', '#F16D64', '#F59640', '#35BEC1', '#F3C746', '#F371AF', '#95C753', '#A0A3A6'],
-        ['#00A0DC', '#8C68CB', '#EC4339', '#F47B16', '#00AEB3', '#EFB920', '#ED4795', '#7CB82F', '#86898C'],
-        ['#008CC9', '#7C5BBB', '#DD2E1F', '#EC640C', '#009EA5', '#E6A700', '#E2247F', '#60AA14', '#737679'],
-        ['#0077B5', '#6A4BA7', '#C11F1D', '#CD5308', '#008891', '#CA9400', '#C9186E', '#4E8F13', '#595C5F'],
-        ['#005E93', '#573B93', '#A40F1C', '#AF4104', '#00727D', '#AA7D00', '#B10C5C', '#3B7511', '#434649'],
-        ['#004471', '#452B7F', '#88001A', '#903000', '#005C69', '#8B6700', '#870044', '#295A10', '#303336']
-    ];
-
-    var colorName2Index = ['blue', 'purple', 'red', 'orange', 'cyan', 'yellow', 'pink', 'green', 'gray'];
-
-
-    nsColor.defaultGradient = 4;
-    nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
-
-
-    nsColor.getColor = function(color, gradient, fromSortedList){
-        var colorIndex = typeof color == 'string' ? colorName2Index.indexOf(color) : color;
-        return nsColor.getColorList(fromSortedList, gradient)[colorIndex];
-    };
-
-
-    nsColor.getDeltaColor = function(color, deltaGradient = 0, fromSortedList){
-        return nsColor.getColor(color, nsColor.defaultGradient + deltaGradient, fromSortedList);
-    };
-
-
-    nsColor.getColorList = function( sorted, gradient = 'DEFAULT' ){
-        gradient = gradient == 'DEFAULT' ? nsColor.defaultGradient : gradient;
-        var result = [];
-        if (sorted){
-            $.each(nsColor.defaultOrder, function(dummy, color){
-                result.push( nsColor.getColor( color, gradient ) );
-            });
-        }
-        else
-            result = nsColor.colorArray[gradient];
-        return result;
-    };
-
-}(jQuery, this, document));
-;
 /*!
  * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
@@ -10943,3 +10879,348 @@ if ( typeof noGlobal === "undefined" ) {
 
 return jQuery;
 } );
+
+;
+/****************************************************************************
+    color.js,
+    Functions to caluclate the brightness of a color
+    Taken from http://codepen.io/lunelson/pen/jENxwB
+
+****************************************************************************/
+
+(function (window/*, document, undefined*/) {
+    "use strict";
+
+    //Create fcoo-namespace
+    var nsColor = window;
+
+
+    function lin2log(n) {
+        if (n <= 0.0031308)
+            return n * 12.92;
+        else
+            return 1.055 * Math.pow(n,1/2.4) - 0.055;
+    }
+
+    function log2lin(n) {
+        if (n <= 0.04045)
+            return n / 12.92;
+        else
+            return Math.pow(((n + 0.055)/1.055),2.4);
+    }
+
+    /********************************************
+    brightness
+    ********************************************/
+    nsColor.brightness = function brightness(r, g, b) {
+        r = log2lin(r/255);
+        g = log2lin(g/255);
+        b = log2lin(b/255);
+        return lin2log(0.2126 * r + 0.7152 * g + 0.0722 * b) * 100;
+    };
+
+    /********************************************
+    colorContrastHEX
+    ********************************************/
+    nsColor.colorContrastHEX = function colorContrastHEX( color ) {
+        if (color.length === 3)
+            color = color.charAt(0) + color.charAt(0) + color.charAt(1) + color.charAt(1) + color.charAt(2) + color.charAt(2);
+        var rgb = [];
+        for (var i = 0; i <= 2; i++)
+            rgb[i] = parseInt(color.substr(1+i*2, 2), 16);
+        return nsColor.colorContrastRGB(rgb[0], rgb[1], rgb[2]);
+    };
+
+    /********************************************
+    colorContrastRGB
+    ********************************************/
+    nsColor.colorContrastRGB = function colorContrastRGB(r, g, b) {
+        var colorBrightness = nsColor.brightness(r, g, b),
+                whiteBrightness = nsColor.brightness(255, 255, 255),
+                blackBrightness = nsColor.brightness(0, 0, 0);
+        return Math.abs(colorBrightness - whiteBrightness) > Math.abs(colorBrightness - blackBrightness) ? '#ffffff' : '#000000';
+    };
+
+    /********************************************
+    rgbHex
+    Convert RGB color to HEX
+    From https://github.com/sindresorhus/rgb-hex
+    ********************************************/
+    nsColor.rgbHex = function(red, green, blue, alpha){
+        var isPercent = (red + (alpha || '')).toString().includes('%');
+
+        if (typeof red === 'string') {
+            var res = red.match(/(0?\.?\d{1,3})%?\b/g).map(Number);
+            red = res[0];
+            green = res[1];
+            blue = res[2];
+            alpha = res[3];
+        }
+        else
+            if (alpha !== undefined) {
+                alpha = parseFloat(alpha);
+            }
+
+        if (typeof red !== 'number' ||
+            typeof green !== 'number' ||
+            typeof blue !== 'number' ||
+            red > 255 ||
+            green > 255 ||
+            blue > 255) {
+                throw new TypeError('Expected three numbers below 256');
+        }
+
+        if (typeof alpha === 'number') {
+            if (!isPercent && alpha >= 0 && alpha <= 1) {
+                alpha = Math.round(255 * alpha);
+            }
+            else
+                if (isPercent && alpha >= 0 && alpha <= 100) {
+                    alpha = Math.round(255 * alpha / 100);
+                }
+                else {
+                    throw new TypeError('Expected alpha value (${alpha}) as a fraction or percentage');
+                }
+            alpha = (alpha | 1 << 8).toString(16).slice(1);
+        }
+        else {
+            alpha = '';
+        }
+
+        return ((blue | green << 8 | red << 16) | 1 << 24).toString(16).slice(1) + alpha;
+    };
+
+    /********************************************
+    hexRgb
+    Convert HEX color to RGB
+    From https://github.com/sindresorhus/hex-rgb
+    ********************************************/
+    var hexChars = 'a-f\\d',
+        match3or4Hex = '#?[' + hexChars + ']{3}[' + hexChars + ']?',
+        match6or8Hex = '#?[' + hexChars + ']{6}([' + hexChars + ']{2})?',
+        nonHexChars = new RegExp('[^#' + hexChars + ']', 'gi'),
+        validHexSize = new RegExp('^' + match3or4Hex + '$|^' + match6or8Hex + '$', 'i');
+
+    nsColor.hexRgb = function(hex, options) {
+        options = options || {};
+        if (typeof hex !== 'string' || nonHexChars.test(hex) || !validHexSize.test(hex)) {
+            throw new TypeError('Expected a valid hex string');
+        }
+
+        hex = hex.replace(/^#/, '');
+        var alpha = 255;
+
+        if (hex.length === 8) {
+            alpha = parseInt(hex.slice(6, 8), 16) / 255;
+            hex = hex.substring(0, 6);
+        }
+
+        if (hex.length === 4) {
+            alpha = parseInt(hex.slice(3, 4).repeat(2), 16) / 255;
+            hex = hex.substring(0, 3);
+        }
+
+        if (hex.length === 3) {
+            hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        }
+
+        var num = parseInt(hex, 16),
+            red = num >> 16,
+            green = (num >> 8) & 255,
+            blue = num & 255;
+
+        return options.format === 'array' ? [red, green, blue, alpha] : { red: red, green: green, blue: blue, alpha: alpha };
+    };
+
+    /********************************************
+    hexSetAlpha
+    Set the alpha-value in a hex-color
+    ********************************************/
+    nsColor.hexSetAlpha = function(hex, alpha){
+        var rgba = nsColor.hexRgb(hex, {format: 'array'});
+        rgba[3] = alpha;
+        return nsColor.rgbHex.apply(this, rgba);
+    };
+
+}(this, document));
+;
+/****************************************************************************
+    json.js,
+****************************************************************************/
+
+(function (window/*, document, undefined*/) {
+    "use strict";
+
+    //Create fcoo-namespace
+    var nsJSON = window;
+
+    /******************************************
+    serializeJSON
+    Converts a json-object a la {id1:'value1', id2:'value2'}
+    to [ { name: "id1", value: "value1" }, { name: "id2", value: "value2" } ]
+    *******************************************/
+    nsJSON.serializeJSON = function( jsonObj ){
+        var result = [];
+        for (var id in jsonObj)
+            if (jsonObj.hasOwnProperty(id))
+                result.push( {name: id, value: jsonObj[id] });
+        return result;
+    };
+
+
+}(this, document));
+;
+/****************************************************************************
+    math.js,
+
+****************************************************************************/
+
+(function (window/*, document, undefined*/) {
+    "use strict";
+
+    var nsMath = window;
+
+    /*******************************************
+    significant - return n rounded to significant sf
+    *******************************************/
+    nsMath.significant = function significant(n, sf) {
+        sf = sf - Math.floor(Math.log(n) / Math.LN10) - 1;
+        sf = Math.pow(10, sf);
+        n = Math.round(n * sf);
+        n = n / sf;
+        return n;
+    };
+
+    /*******************************************
+    precision
+    *******************************************/
+    nsMath.precision = function precision(n, dp) {
+        dp = Math.pow(10, dp);
+        n = n * dp;
+        n = Math.round(n);
+        n = n / dp;
+        return n;
+    };
+
+    /*******************************************
+    nearest
+    *******************************************/
+    nsMath.nearest = function nearest(n, v) {
+        v = v ? v : 1;
+        n = n / v;
+        n = Math.round(n) * v;
+        return n;
+    };
+
+    /*******************************************
+    roundDownTo
+    *******************************************/
+    nsMath.roundDownTo = function roundDownTo(n, v) {
+        v = v ? v : 1;
+        n = n / v;
+        n = Math.floor(n) * v;
+        return n;
+    };
+
+    /*******************************************
+    roundToRange
+    *******************************************/
+    nsMath.roundToRange = function roundToRange(v, min, max) {
+        return Math.max( Math.min(v, max), min);
+    };
+
+    /*******************************************
+    toDecimal
+    Convert a integer value v to a decimal
+    Eq    toDecimal(89)        = 0.89
+            toDecimal(9)        = 0.9
+            toDecimal(1234)    = 0.1234
+    *******************************************/
+    nsMath.toDecimal = function toDecimal(v) {
+        var l = v.toString().length;
+        return v / Math.pow(10, l);
+    };
+
+}(this, document));
+;
+/****************************************************************************
+	fcoo-colors.js,
+
+	(c) 2021, FCOO
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
+
+****************************************************************************/
+
+(function ($, window/*, document, undefined*/) {
+	"use strict";
+
+	//Create fcoo-namespace
+    var ns = window.fcoo = window.fcoo || {},
+        nsColor = ns.color = ns.color || {};
+
+
+    nsColor.colorArray = [
+        //0:Blue    1:Purple    2:Red      3:Orange   4:Cyan     5:Yellow   6:Pink     7:Green    8:Gray
+        ['#CFEDFB', '#EBE4FF', '#FFE0DA', '#FFE7BB', '#D2ECEB', '#FFF2B6', '#FFDFF2', '#E0F4BE', '#E6E9EC'],
+        ['#9BDAF3', '#D8CCF4', '#FAC2BB', '#F8CD94', '#9EDDDD', '#FBE491', '#FFC4E4', '#C7E59A', '#D0D3D6'],
+        ['#68C7EC', '#BFABE6', '#F59890', '#F7B26A', '#69CDCF', '#F7D56B', '#F99ACA', '#AED677', '#B6B9BC'],
+        ['#34B3E4', '#A589D9', '#F16D64', '#F59640', '#35BEC1', '#F3C746', '#F371AF', '#95C753', '#A0A3A6'],
+        ['#00A0DC', '#8C68CB', '#EC4339', '#F47B16', '#00AEB3', '#EFB920', '#ED4795', '#7CB82F', '#86898C'],
+        ['#008CC9', '#7C5BBB', '#DD2E1F', '#EC640C', '#009EA5', '#E6A700', '#E2247F', '#60AA14', '#737679'],
+        ['#0077B5', '#6A4BA7', '#C11F1D', '#CD5308', '#008891', '#CA9400', '#C9186E', '#4E8F13', '#595C5F'],
+        ['#005E93', '#573B93', '#A40F1C', '#AF4104', '#00727D', '#AA7D00', '#B10C5C', '#3B7511', '#434649'],
+        ['#004471', '#452B7F', '#88001A', '#903000', '#005C69', '#8B6700', '#870044', '#295A10', '#303336']
+    ];
+
+    var colorName2Index = ['blue', 'purple', 'red', 'orange', 'cyan', 'yellow', 'pink', 'green', 'gray'];
+
+
+    nsColor.defaultGradient = 4;
+    nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
+
+
+    nsColor.getColor = function(color, gradient, fromSortedList){
+        var colorIndex = typeof color == 'string' ? colorName2Index.indexOf(color) : color;
+        return nsColor.getColorList(fromSortedList, gradient)[colorIndex];
+    };
+
+
+    nsColor.getColorRGB =  function(/*color, gradient, fromSortedList*/){
+        return window.hexRgb( nsColor.getColor.apply(null, arguments) );
+    };
+
+    nsColor.getColorRGBArray =  function(/*color, gradient, fromSortedList*/){
+        return window.hexRgb( nsColor.getColor.apply(null, arguments), {format: 'array'} );
+    };
+
+
+    nsColor.getDeltaColor = function(color, deltaGradient = 0, fromSortedList){
+        return nsColor.getColor(color, nsColor.defaultGradient + deltaGradient, fromSortedList);
+    };
+
+
+    nsColor.getDeltaColorRGB = function(/*color, deltaGradient = 0, fromSortedList*/){
+        return window.hexRgb( nsColor.getDeltaColor.apply(null, arguments) );
+    };
+
+    nsColor.getDeltaColorRGBArray =  function(/*color, deltaGradient = 0, fromSortedList*/){
+        return window.hexRgb( nsColor.getDeltaColor.apply(null, arguments), {format: 'array'} );
+    };
+
+
+    nsColor.getColorList = function( sorted, gradient = 'DEFAULT' ){
+        gradient = gradient == 'DEFAULT' ? nsColor.defaultGradient : gradient;
+        var result = [];
+        if (sorted){
+            $.each(nsColor.defaultOrder, function(dummy, color){
+                result.push( nsColor.getColor( color, gradient ) );
+            });
+        }
+        else
+            result = nsColor.colorArray[gradient];
+        return result;
+    };
+
+}(jQuery, this, document));

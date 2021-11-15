@@ -86,6 +86,28 @@ Colors for harbors etc. in Denmark and Greenland
 ### 8:Gray (TODO)
 
 
+## JavaScript
+
+The following variables are defined in ns `window.fcoo.color`
+
+        window.fcoo.color.colorNames = //{id}{da:STRING, en:STRING}
+            blue    : {da: 'blå',    en: 'blue'     },
+            purple  : {da: 'lilla',  en: 'purple'   },
+            red     : {da: 'rød',    en: 'red'      },
+            orange  : {da: 'orange', en: 'orange'   },
+            cyan    : {da: 'cyan',   en: 'cyan'     },
+            yellow  : {da: 'Gul',    en: 'yellow'   },
+            pink    : {da: 'pink',   en: 'pink'     },
+            green   : {da: 'grøn',   en: 'green'    },
+            gray    : {da: 'grå',    en: 'gray'     }
+        };
+
+    window.fcoo.color.colorList  = [ //[]{id, name: {da:STRING, en:STRING}} ordred window.fcoo.color.defaultOrder
+        {id: 'blue', name: {da: 'blå', en: 'blue' }},
+        {id: 'red',  name: {da: 'rød', en: 'red'  }},
+        ...
+    ]
+
 <!--
 ### options
 | Id | Type | Default | Description |
