@@ -80,16 +80,3 @@ Style for fcoo/fcoo-maps-havnelods
 @import "fcoo-maps-colors-havnelods";
 
 
-/*********************************
-STANDARD USER COLORS
-*********************************/
-
-@include polyline-classes( dette-er-et-navn, green, red );
-
-//lbm-marker-and-icon-classes - Create class for bsMarkerCircle named $name with color and color-border
-@include lbm-circle-and-icon-classes( dette-er-et-navn, green, red );
-
-
-//fa-lbm-color - Create class for color and border-color used by L.bsMarkerAsIcon (and $.bsMarkerAsIcon) to create fa-icon looking like the marker
-@include  fa-lbm-color( dette-er-et-navn, green, red );
-

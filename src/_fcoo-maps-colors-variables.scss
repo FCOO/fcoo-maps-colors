@@ -7,6 +7,26 @@ Create all scss-variable with colors for different fcoo-maps layers
 
 
 /****************************************************************************
+COMMON
+****************************************************************************/
+// $fc-color-name-list = list of name: color for all colors plus white and black
+$fc-color-name-list: (
+    "blue"  : fc-get-color( $fc-blue    ),
+    "purple": fc-get-color( $fc-purple  ),
+    "red"   : fc-get-color( $fc-red     ),
+    "orange": fc-get-color( $fc-orange  ),
+    "cyan"  : fc-get-color( $fc-cyan    ),
+    "yellow": fc-get-color( $fc-yellow  ),
+    "pink"  : fc-get-color( $fc-pink    ),
+    "green" : fc-get-color( $fc-green   ),
+    "gray"  : fc-get-color( $fc-gray    ),
+    "white" : white,
+    "black" : black
+);
+
+
+
+/****************************************************************************
 TIME
 Color to mark a time, button etc. as past, now or future
 ****************************************************************************/
