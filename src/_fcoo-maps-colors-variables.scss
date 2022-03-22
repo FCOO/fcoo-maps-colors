@@ -74,11 +74,18 @@ $harbor-dk-color: fc-get-color($fc-green);
 $harbor-gl-color: fc-get-delta-color($fc-green, 1);
 
 
-
-
 /****************************************************************************
 LOCATION
 ****************************************************************************/
 $location-color: #4285F4; //= rgba(66, 133, 244) = google maps color for location icon
+
+
+/****************************************************************************
+YOUR POSITION
+****************************************************************************/
+$location-color       : $location-color;
+$location-follow-color: darken($location-color, 20%);
+
+
 
 

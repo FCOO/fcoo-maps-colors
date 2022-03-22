@@ -1,0 +1,9 @@
+/***********************************************
+_fcoo-maps-colors-your-position.scss
+
+Style for fcoo/fcoo-maps-your-position
+
+************************************************/
+
+@include lbm-marker-and-icon-classes( your-position, $location-color );
+@include lbm-marker-and-icon-classes( your-position-follow, $location-follow-color );
