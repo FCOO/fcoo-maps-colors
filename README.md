@@ -86,6 +86,31 @@ Colors for harbors etc. in Denmark and Greenland
 ### 8:Gray (TODO)
 
 
+### Time
+
+$-variables and class to color time in the past, now or the future
+
+    /* Time-color-variables */
+    $time-past-color
+    $time-past-bg-color
+
+    $time-now-color
+    $time-now-bg-color
+
+    $time-future-color
+    $time-future-bg-color
+
+    /* time-color-class */
+    .time-past-color      { color           : $time-past-color     }
+    .time-past-bg-color   { background-color: $time-past-bg-color  }
+
+    .time-now-color       { color           : $time-now-color      }
+    .time-now-bg-color    { background-color: $time-now-bg-color   }
+
+    .time-future-color    { color           : $time-future-color   }
+    .time-future-bg-color { background-color: $time-future-bg-color}
+
+
 ## JavaScript
 
 The following variables are defined in ns `window.fcoo.color`

@@ -53,11 +53,25 @@ Style for search results in fcoo-maps
 /*********************************
 Style for time
 *********************************/
-.time-past-color   { color: $time-past-color  }
-.time-now-color    { color: $time-now-color   }
-.time-future-color { color: $time-future-color}
+:root {
+    --jbn-time-past-color     : #7ABAE1;
+    --jbn-time-past-bg-color  : #7ABAE1; //TODO - Perhaps a lighter version
 
+    --jbn-time-now-color      : darkgreen;
+    --jbn-time-now-bg-color   : lightgreen;
 
+    --jbn-time-future-color   : #4D72B8;
+    --jbn-time-future-bg-color: #4D72B8; //TODO - Perhaps a lighter version
+}
+
+.time-past-color      { color           : $time-past-color     }
+.time-past-bg-color   { background-color: $time-past-bg-color  }
+
+.time-now-color       { color           : $time-now-color      }
+.time-now-bg-color    { background-color: $time-now-bg-color   }
+
+.time-future-color    { color           : $time-future-color   }
+.time-future-bg-color { background-color: $time-future-bg-color}
 
 
 /*********************************

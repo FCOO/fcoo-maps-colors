@@ -139,14 +139,31 @@ Style for search results in fcoo-maps
 /*********************************
 Style for time
 *********************************/
+:root {
+  --jbn-time-past-color: #7ABAE1;
+  --jbn-time-past-bg-color: #7ABAE1;
+  --jbn-time-now-color: darkgreen;
+  --jbn-time-now-bg-color: lightgreen;
+  --jbn-time-future-color: #4D72B8;
+  --jbn-time-future-bg-color: #4D72B8; }
+
 .time-past-color {
-  color: #7ABAE1; }
+  color: var(--jbn-time-past-color, #7ABAE1); }
+
+.time-past-bg-color {
+  background-color: var(--jbn-time-past-bg-color, var(--jbn-time-past-color, #7ABAE1)); }
 
 .time-now-color {
-  color: lightgreen; }
+  color: var(--jbn-time-now-color, darkgreen); }
+
+.time-now-bg-color {
+  background-color: var(--jbn-time-now-bg-color, var(--jbn-time-now-color, darkgreen)); }
 
 .time-future-color {
-  color: #4D72B8; }
+  color: var(--jbn-time-future-color, #4D72B8); }
+
+.time-future-bg-color {
+  background-color: var(--jbn-time-future-bg-color, var(--jbn-time-future-color, #4D72B8)); }
 
 /*********************************
 FCOO-MAPS-COLORS-OBSERVATIONS
