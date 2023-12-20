@@ -13,18 +13,6 @@
 /*********************************
 IMPORT UTILITIES
 *********************************/
-//BOURBON - http://bourbon.io/
-// @import "../bower_components/bourbon/core/bourbon";
-
-//MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
-// @import "../bower_components/modernizr-mixin/stylesheets/modernizr";
-
-//MATHSASS - https://github.com/terkel/mathsass
-// @import "../bower_components/mathsass/dist/math";
-
-//COLOR-HELPER
-@import "../bower_components/sass-color-helpers/stylesheets/color-helpers";
-
 //LEAFLET-BOOTSTRAP-MARKER-MIXIN - mixin to create colors for marker (bsMarker)
 @import "../bower_components/leaflet-bootstrap-marker-mixin/dist/leaflet-bootstrap-marker-mixin";
 
@@ -33,9 +21,9 @@ IMPORT UTILITIES
 
 
 /*********************************
-FCOO-COLORS
+FCOO-COLORS-VARIABLES and FCOO-COLORS-MIXIN
 *********************************/
-@import "../bower_components/fcoo-colors/src/fcoo-colors-mixin";
+@import "../bower_components/fcoo-colors/src/fcoo-colors-include";
 
 /*********************************
 FCOO-MAPS-COLORS-VARIABLES and FCOO-MAPS-COLORS-MIXIN
@@ -44,35 +32,10 @@ scss-variable with all colors and mixins
 @import "fcoo-maps-colors-variables";
 @import "fcoo-maps-colors-mixin";
 
-
 /*********************************
 Style for search results in fcoo-maps
 *********************************/
 @include marker-and-polygon-color( 'search-result', $search-result-color);
-
-/*********************************
-Style for time
-*********************************/
-:root {
-    --jbn-time-past-color     : #7ABAE1;
-    --jbn-time-past-bg-color  : #7ABAE1; //TODO - Perhaps a lighter version
-
-    --jbn-time-now-color      : darkgreen;
-    --jbn-time-now-bg-color   : lightgreen;
-
-    --jbn-time-future-color   : #4D72B8;
-    --jbn-time-future-bg-color: #4D72B8; //TODO - Perhaps a lighter version
-}
-
-.time-past-color      { color           : $time-past-color     }
-.time-past-bg-color   { background-color: $time-past-bg-color  }
-
-.time-now-color       { color           : $time-now-color      }
-.time-now-bg-color    { background-color: $time-now-bg-color   }
-
-.time-future-color    { color           : $time-future-color   }
-.time-future-bg-color { background-color: $time-future-bg-color}
-
 
 /*********************************
 FCOO-MAPS-COLORS-OBSERVATIONS
