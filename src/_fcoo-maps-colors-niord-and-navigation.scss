@@ -33,6 +33,6 @@ Create the style for the four different domains
 :root {
     --jbn-time-past-color    : #{$time-past-color};
     --jbn-time-now-color     : #{$time-now-color};
-    --jbn-time-now-text-color: #{$time-now-text-color}
-    --jbn-time-future-color  : #{$time-future-color}
+    --jbn-time-now-text-color: #{$time-now-text-color};
+    --jbn-time-future-color  : #{$time-future-color};
 }

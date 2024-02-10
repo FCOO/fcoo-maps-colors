@@ -395,8 +395,8 @@ Create the style for the four different domains
 :root {
   --jbn-time-past-color: var(--fc-time-past-color);
   --jbn-time-now-color: var(--fc-time-now-color);
-  --jbn-time-now-text-color: var(--fc-time-now-text-color)
-  --jbn-time-future-color : var(--fc-time-future-color) ;
+  --jbn-time-now-text-color: var(--fc-time-now-text-color);
+  --jbn-time-future-color: var(--fc-time-future-color);
 }
 
 /*********************************
