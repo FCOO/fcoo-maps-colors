@@ -1,0 +1,9 @@
+/***********************************************
+_fcoo-maps-colors-search-result.scss
+
+
+************************************************/
+
+@include marker-and-polygon-color( 'search-result', $search-result-color);
+
+.fa-search-result { color: $search-result-color; }

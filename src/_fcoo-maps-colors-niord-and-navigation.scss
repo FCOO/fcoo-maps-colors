@@ -23,10 +23,17 @@ Create the style for the four different domains
 @include niord( 'fe', $navigation-purple, $navigation-purple-dark);
 
 
-//Icon-color for navigations layer
-.fa-navigation {
-    color: $navigation-pink;
-}
+//Icon-color for navigations layer. To avoid confusion: "fa-"=Font-Awesome, "-fa"=Firing Area
+.fa-navigation          { color: $navigation-pink; }
+
+.fa-niord-fa            { color: white; }
+.fa-niord-border-fa     { color: $navigation-purple-dark; }
+.fa-niord-nm            { color: white; }
+.fa-niord-border-nm     { color: $navigation-purple-dark; }
+.fa-niord-nw            { color: $navigation-purple; }
+.fa-niord-border-nw     { color: $navigation-purple-dark; }
+.fa-niord-fe            { color: $navigation-purple; }
+.fa-niord-border-fe     { color: $navigation-purple-dark; }
 
 
 //Use fcoo-color vars for time-colors (past, now future)

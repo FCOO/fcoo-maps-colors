@@ -35,7 +35,7 @@ scss-variable with all colors and mixins
 /*********************************
 Style for search results in fcoo-maps
 *********************************/
-@include marker-and-polygon-color( 'search-result', $search-result-color);
+@import "fcoo-maps-colors-search-result";
 
 /*********************************
 FCOO-MAPS-COLORS-OBSERVATIONS
